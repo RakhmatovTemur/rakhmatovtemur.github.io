@@ -40,24 +40,34 @@ if ('IntersectionObserver' in window) {
   reveals.forEach((element) => element.classList.add('visible'));
 }
 
-const sections = [...document.querySelectorAll('main section[id]')];
+const sectionLinks = [...menuLinks].filter((link) =>
+  link.getAttribute('href')?.startsWith('#')
+);
+
 const navById = new Map(
-  [...menuLinks].map((link) => [link.getAttribute('href')?.slice(1), link])
+  sectionLinks.map((link) => [link.getAttribute('href')?.slice(1), link])
 );
 
-const sectionObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        return;
-      }
+const sections = sectionLinks
+  .map((link) => link.getAttribute('href'))
+  .map((target) => (target ? document.querySelector(target) : null))
+  .filter(Boolean);
 
-      const targetId = entry.target.getAttribute('id');
-      menuLinks.forEach((link) => link.classList.remove('active'));
-      navById.get(targetId)?.classList.add('active');
-    });
-  },
-  { threshold: 0.4 }
-);
+if (sections.length > 0 && 'IntersectionObserver' in window) {
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
 
-sections.forEach((section) => sectionObserver.observe(section));
+        const targetId = entry.target.getAttribute('id');
+        sectionLinks.forEach((link) => link.classList.remove('active'));
+        navById.get(targetId)?.classList.add('active');
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  sections.forEach((section) => sectionObserver.observe(section));
+}

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arkansas Education Spending Over Time | Temurbek Rakhmatov</title>
+    <meta
+      name="description"
+      content="Historical analysis of Arkansas education spending with an interactive Sankey-bar chart from 1960 to 2024."
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="blog.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <nav class="nav container" aria-label="Primary">
+        <a class="brand" href="../index.html">Temurbek Rakhmatov</a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          Menu
+        </button>
+        <ul id="primary-menu" class="menu">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Blog</a></li>
+          <li><a class="active" href="arkansas-education-spending-over-time.html">This Post</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main" class="container blog-main post-main">
+      <article class="post-article reveal">
+        <p class="post-tag">Arkansas | Education Finance</p>
+        <h1>Arkansas Education Spending Over Time</h1>
+        <div class="post-meta">
+          <span>Published February 20, 2026</span>
+          <span>Estimated series: 1960 to 2024</span>
+        </div>
+        <p class="post-disclaimer">
+          This post is for demonstration and test purposes only; values may not be accurate.
+        </p>
+        <p class="post-intro">
+          This post tracks Arkansas K-12 current spending from 1960 to 2024 in
+          inflation-adjusted (2024-dollar) terms. Because historical subcategory data
+          are not fully consistent across decades, I anchor the series on available
+          reporting years and estimate missing points using trend-based interpolation.
+        </p>
+      </article>
+
+      <section class="metric-grid reveal" aria-label="Key results">
+        <article class="metric-card">
+          <p class="metric-number" id="metric-growth">-</p>
+          <p class="metric-label" id="metric-growth-label">Growth in real spending since 1960</p>
+        </article>
+        <article class="metric-card">
+          <p class="metric-number" id="metric-teacher-share">-</p>
+          <p class="metric-label">Teacher salary share in 2024</p>
+        </article>
+        <article class="metric-card">
+          <p class="metric-number" id="metric-support-share">-</p>
+          <p class="metric-label">Support and operations share in 2024</p>
+        </article>
+      </section>
+
+      <section class="chart-card reveal" aria-label="Interactive chart">
+        <div class="chart-header">
+          <p class="header-eyebrow">State Education Finance Analysis | 1960 to 2024</p>
+          <h2>Sankey-Bar View of Spending Composition</h2>
+          <p>
+            Each vertical stack is total spending for a given year block, while
+            colored flows show how major spending categories evolve across decades.
+          </p>
+          <div class="mode-toggle" role="group" aria-label="Expenditure display mode">
+            <button class="mode-button active" data-mode="real" type="button">Real (2024 dollars)</button>
+            <button class="mode-button" data-mode="nominal" type="button">Nominal dollars</button>
+          </div>
+        </div>
+
+        <ul id="spending-legend" class="chart-legend" aria-label="Spending categories"></ul>
+
+        <div class="chart-scroll">
+          <svg
+            id="arkansas-spending-chart"
+            class="spending-chart"
+            viewBox="0 0 1200 640"
+            role="img"
+            aria-label="Sankey-bar chart of Arkansas education spending from 1960 to 2024 by category"
+          ></svg>
+        </div>
+
+        <div id="chart-tooltip" class="chart-tooltip" aria-live="polite"></div>
+        <p id="chart-summary" class="chart-summary">
+          Hover over any block or flow to inspect category-level changes across years.
+        </p>
+        <div class="chart-footnote">
+          <span class="note-pill">Estimated where series are missing</span>
+          <span class="footnote-text">
+            Nominal series anchored on NCES state expenditures; real series deflated to
+            2024 dollars using CPI-based factors.
+          </span>
+        </div>
+      </section>
+
+      <section class="post-section reveal">
+        <h2>Interpretation</h2>
+        <ul class="insight-list">
+          <li>
+            Total real spending rises steadily across each 20-year block, with the
+            steepest acceleration between 2000 and 2024.
+          </li>
+          <li>
+            Teacher/instructor salary remains the largest category, but its share is
+            gradually lower than in the 1960s as the system broadens support functions.
+          </li>
+          <li>
+            Student support and technology spending become clearly visible after 2000,
+            reflecting expansion beyond core classroom salary costs.
+          </li>
+        </ul>
+      </section>
+
+      <section class="post-section reveal">
+        <h2>Estimation Notes</h2>
+        <p>
+          Historical totals are anchored on available Arkansas current expenditure
+          reporting points and translated into 2024 dollars using approximate CPI-U
+          factors. Category-level splits are estimated to remain consistent with
+          reported structure in later years and adjusted where categories emerge in
+          the modern period.
+        </p>
+        <p class="note">
+          The chart is intended for trend interpretation, not audited accounting.
+          For official fiscal reporting, use original state and federal statistical
+          releases.
+        </p>
+      </section>
+
+      <section class="post-section reveal">
+        <h2>Data References</h2>
+        <ul class="report-list">
+          <li>
+            <a href="https://nces.ed.gov/programs/digest/d23/tables/dt23_236.10.asp">
+              NCES Digest Table 236.10 (State current expenditures, selected years)
+            </a>
+          </li>
+          <li>
+            <a href="https://nces.ed.gov/programs/statereform/tab3_2023.asp">
+              NCES State Education Reforms Table 3 (FY 2023 functional spending)
+            </a>
+          </li>
+          <li>
+            <a href="https://nces.ed.gov/programs/statereform/tab6_2023.asp">
+              NCES State Education Reforms Table 6 (FY 2023 salaries and benefits)
+            </a>
+          </li>
+          <li>
+            <a href="https://nces.ed.gov/pubs2010/2010326/tables/table_14.asp">
+              NCES Table 14 (Current expenditure function shares)
+            </a>
+          </li>
+          <li>
+            <a href="https://fred.stlouisfed.org/series/CPIAUCSL">
+              FRED CPIAUCSL (CPI-U index used for nominal-to-real conversion)
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer blog-footer">
+      <div class="container">
+        <p>© <span id="year"></span> Temurbek Rakhmatov. Built for GitHub Pages.</p>
+      </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script src="arkansas-spending.js"></script>
+  </body>
+</html>
